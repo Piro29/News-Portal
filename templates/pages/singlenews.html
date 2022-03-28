@@ -1,0 +1,261 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="section">
+        <!-- CONTAINER -->
+        <div class="container">
+            <!-- ROW -->
+            <div class="row">
+                <!-- Main Column -->
+                <div class="col-md-8">
+
+                    <!-- breadcrumb -->
+                    <ul class="article-breadcrumb">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">News</a></li>
+                        <li>{{ title }}</li>
+                    </ul>
+                    <!-- /breadcrumb -->
+
+                    <!-- ARTICLE POST -->
+                    <article class="article article-post">
+                        <div class="article-share">
+                            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+                        </div>
+                        <div class="article-main-img">
+                            <img {% if busy.image %}
+                                        src="{{ image }}"
+                                        {% else %}
+                                        src="{% static 'img/no-image.png' %}"
+                                       {% endif %} alt="">
+                        </div>
+                        <div class="article-body">
+                            <ul class="article-info">
+                                <li class="article-category"><a href="{{ url }}">Go To Website</a></li>
+                                <li class="article-type"><i class="fa fa-globe"></i></li>
+                            </ul>
+                            <h1 class="article-title">{{ title }}</h1>
+                            <div class="d-inline">
+                                <i class="fa fa-clock-o"></i>{{ date }}
+                                <i class="fa fa-pencil" style="padding-left: 28em;padding-bottom: 20px"></i> From
+                                : {{ author }}
+
+                                <p>
+                                    {{ description }}{{ description }}{{ description }}{{ description }}{{ description }}{{ description }}</p>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- /ARTICLE POST -->
+
+                    <div class="article-reply-form">
+                        <div class="section-title">
+                            <h2 class="title">Leave a comment</h2>
+                        </div>
+
+                        <form action="{% url 'singlepost' %}" method="post">
+                            {% csrf_token %}
+                            <textarea class="input" placeholder="Message" data-toggle="collapse"
+                                      data-target="#name_input" required name="content"></textarea>
+                            <div class="collapse" id="name_input">
+                                <input class="input" placeholder="Name" name='name' type="text" required>
+                                <input type="hidden" name="title" value="{{ title }}">
+                                <input type="hidden" name="description" value="{{ description }}">
+                                <input type="hidden" name="image" value="{{ image }}">
+                                <input type="hidden" name="url" value="{{ url }}">
+                                <input type="hidden" name="date" value="{{ date }}">
+                                <input type="hidden" name="author" value="{{ author }}">
+                                <button type="submit" class="input-btn" name="_comment">Post Comment</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="article-comments">
+                        <div class="section-title">
+                            <h2 class="title">Comments</h2>
+                        </div>
+
+
+                        <!-- comment -->
+                        {% for comment in comments %}
+                            {% if title|lower == comment.title|lower %}
+                                <div class="media">
+                                    <div class="media-left">
+                                        <img src="{% static 'img/guest.png' %}" alt="" style="height: 20px;">
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="media-heading">
+                                            <h5>{{ comment.username }}<span
+                                                    class="reply-time">{{ comment.created_on }}</span></h5>
+                                        </div>
+                                        <p>{{ comment.content }}</p>
+
+                                        <a class="reply-btn" data-toggle="collapse"
+                                           data-target="#reply_form{{ forloop.counter }}"
+                                           style="cursor: pointer">Reply</a>
+                                        <form action="{% url 'singlepost' %}" class="collapse"
+                                              id="reply_form{{ forloop.counter }}" method="post">
+                                            {% csrf_token %}
+                                            <input type="hidden" name="comment_id" value="{{ comment.id }}">
+                                            <textarea class="input" placeholder="Message" data-toggle="collapse"
+                                                      data-target="#reply_input{{ forloop.counter }}"
+                                                      required name="content"></textarea>
+                                            <div class="collapse" id="reply_input{{ forloop.counter }}">
+                                                <input type="hidden" name="title" value="{{ title }}">
+                                                <input type="hidden" name="description" value="{{ description }}">
+                                                <input type="hidden" name="image" value="{{ image }}">
+                                                <input type="hidden" name="url" value="{{ url }}">
+                                                <input type="hidden" name="date" value="{{ date }}">
+                                                <input type="hidden" name="author" value="{{ author }}">
+                                                <input class="input" placeholder="Name" name='name' type="text"
+                                                       required>
+                                                <button class="input-btn" type="submit" name="_reply">Post Comment
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    {% for reply in comment.replies.all %}
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <img src="{% static 'img/guest.png' %}" alt="" style="height: 26px">
+                                            </div>
+                                            <div class="media-body">
+                                                <div class="media-heading">
+                                                    <h5>{{ reply.username }}<span
+                                                            class="reply-time">{{ reply.created_on }}</span></h5>
+                                                </div>
+                                                <p>{{ reply.content }}</p>
+
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+
+                            {% endif %}
+                        {% empty %}
+                            <h3>NO Comments</h3>
+                        {% endfor %}
+
+                        <!-- /comment -->
+                    </div>
+
+                </div>
+                <!-- /Main Column -->
+
+                <!-- Aside Column -->
+                <div class="col-md-4">
+
+                    <div class="widget center-block hidden-xs">
+                        <img class="center-block" src="{% static 'img/ad-1.jpg' %}" alt="" style="width: 100%;height: 100%">
+                    </div>
+
+                    <div class="widget">
+                        <div class="widget-title">
+                            <h2 class="title">Tech News</h2>
+                        </div>
+
+                        <!-- owl carousel 3 -->
+                        <div id="owl-carousel-3" class="owl-carousel owl-theme center-owl-nav">
+                            <!-- ARTICLE -->
+                            {% for busy in verge %}
+                                <form action="{% url 'singlepost' %}" method="post">
+                                    {% csrf_token %}
+                                    <article class="article">
+                                        <div class="article-img">
+                                            <a href="#">
+                                                <img src="{{ busy.urlToImage }}" alt="">
+                                            </a>
+                                            <input type="hidden" name="title" value="{{ busy.title }}">
+                                            <input type="hidden" name="description" value="{{ busy.description }}">
+                                            <input type="hidden" name="image" value="{{ busy.urlToImage }}">
+                                            <input type="hidden" name="url" value="{{ busy.url }}">
+                                            <input type="hidden" name="date" value="{{ busy.publishedAt }}">
+                                            <input type="hidden" name="author" value="{{ busy.author }}">
+                                        </div>
+                                        <div class="article-body">
+                                            <h4 class="article-title">
+                                                <button type="submit" style="background:none!important;
+                                                                                 border:none;
+                                                                                 padding:0!important;">
+                                                    {{ busy.title }}</button>
+                                            </h4>
+                                            <ul class="article-meta">
+                                                <li><i class="fa fa-clock-o"></i>{{ busy.publishedAt }}</li>
+
+                                            </ul>
+                                        </div>
+                                    </article>
+                                </form>
+
+                            {% endfor %}
+
+                            <!-- /ARTICLE -->
+
+                        </div>
+                        <!-- /owl carousel 3 -->
+
+                        <!-- ARTICLE -->
+
+                        <!-- /ARTICLE -->
+                    </div>
+                    <!-- article widget -->
+                    <div class="widget">
+                        <div class="widget-title">
+                            <h2 class="title">TechCrunch</h2>
+                        </div>
+
+                        <!-- owl carousel 4 -->
+                        <div id="owl-carousel-4" class="owl-carousel owl-theme">
+                            <!-- ARTICLE -->
+                            {% for busy in techcrunch %}
+                                <form action="{% url 'singlepost' %}" method="post">
+                                    {% csrf_token %}
+                                    <article class="article thumb-article">
+                                        <div class="article-img">
+                                            <a href="#">
+                                                <img src="{{ busy.urlToImage }}" alt="">
+                                            </a>
+                                            <input type="hidden" name="title" value="{{ busy.title }}">
+                                            <input type="hidden" name="description" value="{{ busy.description }}">
+                                            <input type="hidden" name="image" value="{{ busy.urlToImage }}">
+                                            <input type="hidden" name="url" value="{{ busy.url }}">
+                                            <input type="hidden" name="date" value="{{ busy.publishedAt }}">
+                                            <input type="hidden" name="author" value="{{ busy.author }}">
+                                        </div>
+                                        <div class="article-body d-inline">
+                                            <h4 class="article-title">
+                                                <button type="submit" style="background:none!important;
+                                                                                 border:none;
+                                                                                 padding:0!important;
+                                                                                 color: white;">
+                                                    {{ busy.title }}</button>
+                                            </h4>
+                                            <ul class="article-meta">
+                                                <li><i class="fa fa-clock-o"></i>{{ busy.publishedAt }}</li>
+
+                                            </ul>
+                                        </div>
+                                    </article>
+                                </form>
+
+                            {% endfor %}
+                            <!-- /ARTICLE -->
+
+
+                            <!-- /owl carousel 4 -->
+                        </div>
+                        <!-- /article widget -->
+                    </div>
+                    <!-- /Aside Column -->
+                </div>
+                <!-- /ROW -->
+            </div>
+            <!-- /CONTAINER -->
+        </div>
+    </div>
+
+
+{% endblock %}

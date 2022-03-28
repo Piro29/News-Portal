@@ -1,0 +1,742 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+
+
+    <!-- Owl Carousel 1 -->
+    <div id="owl-carousel-1" class="owl-carousel owl-theme center-owl-nav">
+        <!-- ARTICLE -->
+        {% for busy in everything %}
+            <form action="{% url 'singlepost' %}" method="post">
+                {% csrf_token %}
+                <!-- ARTICLE -->
+                <article class="article thumb-article">
+                    <div class="article-img">
+                        <a href="#">
+                            <img src="{{ busy.urlToImage }}" alt="" style="width:790px;height: 500px;">
+                        </a>
+                        <input type="hidden" name="title" value="{{ busy.title }}">
+                        <input type="hidden" name="description" value="{{ busy.description }}">
+                        <input type="hidden" name="image" value="{{ busy.urlToImage }}">
+                        <input type="hidden" name="url" value="{{ busy.url }}">
+                        <input type="hidden" name="date" value="{{ busy.publishedAt }}">
+                        <input type="hidden" name="author" value="{{ busy.author }}">
+                    </div>
+                    <div class="article-body">
+                        <h4 class="article-title">
+                            <button type="submit" style="background:none!important;
+                                                                                 border:none;
+                                                                                 padding:0!important;color: white">
+                                {{ busy.title }}</button>
+                        </h4>
+                        <ul class="article-meta">
+                            <li><i class="fa fa-clock-o"></i>  {{ busy.publishedAt }}</li>
+                        </ul>
+                    </div>
+                </article>
+                <!-- /ARTICLE -->
+            </form>
+        {% endfor %}
+        <!-- /ARTICLE -->
+
+
+    </div>
+    <!-- /Owl Carousel 1 -->
+
+
+    <!-- SECTION -->
+    <div class="section">
+        <!-- CONTAINER -->
+        <div class="container">
+            <!-- ROW -->
+            <div class="row">
+                <!-- Main Column -->
+                <div class="col-md-12">
+                    <!-- section title -->
+                    <div class="section-title">
+                        <h2 class="title">Top Headlines</h2>
+                        <!-- tab nav -->
+                        <ul class="tab-nav pull-right">
+                            <li class="active"><a data-toggle="tab" href="#tabAll">All</a></li>
+                            <li><a data-toggle="tab" href="#bbc">BBC</a></li>
+                            <li><a data-toggle="tab" href="#cnn">CNN</a></li>
+                            <li><a data-toggle="tab" href="#engadget">Engadget</a></li>
+                            <li><a data-toggle="tab" href="#politico">Politico</a></li>
+                            <li><a data-toggle="tab" href="#foxNews">Fox News</a></li>
+                            <li><a data-toggle="tab" href="#theWallStreetJournal">The Wall Street</a></li>
+                            <li><a data-toggle="tab" href="#theWashingtonPost">The Washington Post</a></li>
+                        </ul>
+                        <!-- /tab nav -->
+                    </div>
+                    <!-- /section title -->
+
+                    <!-- Tab content -->
+                    <div id="tabAll" class="tab-content">
+                        <!-- bbc -->
+                        <div id="bbc" class="tab-pane fade in active">
+                            <!-- row -->
+                            <div class="row">
+                                <!-- Column 1 -->
+                                {% for busy in bbc %}
+                                    <form action="{% url 'singlepost' %}" method="post">
+                                        {% csrf_token %}
+                                        <div class="col-md-3 col-sm-6">
+                                            <!-- ARTICLE -->
+                                            <article class="article">
+                                                <div class="article-img">
+                                                    <a href="#">
+                                                        <img src="{{ busy.urlToImage }}" alt=""
+                                                             style="object-fit:cover;object-center:center;">
+                                                    </a>
+                                                    <input type="hidden" name="title" value="{{ busy.title }}">
+                                                    <input type="hidden" name="description"
+                                                           value="{{ busy.description }}">
+                                                    <input type="hidden" name="image" value="{{ busy.urlToImage }}">
+                                                    <input type="hidden" name="url" value="{{ busy.url }}">
+                                                    <input type="hidden" name="date"
+                                                           value="{{ busy.publishedAt }}">
+                                                    <input type="hidden" name="author" value="{{ busy.author }}">
+                                                    <input type="hidden" name="content" value="123">
+                                                    <input type="hidden" name="name" value=" ">
+                                                </div>
+                                                <div class="article-body">
+                                                    <h4 class="article-title">
+                                                        <button type="submit" style="background:none!important;
+                                                                                 border:none;
+                                                                                 padding:0!important;">
+                                                            {{ busy.title }}</button>
+                                                    </h4>
+                                                    <ul class="article-meta">
+                                                        <li>
+                                                            <i class="fa fa-clock-o"></i>  {{ busy.publishedAt }}
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </article>
+                                            <!-- /ARTICLE -->
+                                        </div>
+                                    </form>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                        <!-- cnn -->
+                        <div id="cnn" class="tab-pane fade in active">
+                            <!-- row -->
+                            <div class="row">
+                                <!-- Column 1 -->
+                                {% for busy in cnn %}
+                                    <form action="{% url 'singlepost' %}" method="post">
+                                        {% csrf_token %}
+                                        <div class="col-md-3 col-sm-6">
+                                            <!-- ARTICLE -->
+                                            <article class="article">
+                                                <div class="article-img">
+                                                    <a href="#">
+                                                        <img src="{{ busy.urlToImage }}" alt=""
+                                                             style="object-fit:cover;object-center:center;">
+                                                    </a>
+                                                    <input type="hidden" name="title" value="{{ busy.title }}">
+                                                    <input type="hidden" name="description"
+                                                           value="{{ busy.description }}">
+                                                    <input type="hidden" name="image" value="{{ busy.urlToImage }}">
+                                                    <input type="hidden" name="url" value="{{ busy.url }}">
+                                                    <input type="hidden" name="date"
+                                                           value="{{ busy.publishedAt }}">
+                                                    <input type="hidden" name="author" value="{{ busy.author }}">
+                                                    <input type="hidden" name="content" value="123">
+                                                    <input type="hidden" name="name" value=" ">
+                                                </div>
+                                                <div class="article-body">
+                                                    <h4 class="article-title">
+                                                        <button type="submit" style="background:none!important;
+                                                                                 border:none;
+                                                                                 padding:0!important;">
+                                                            {{ busy.title }}</button>
+                                                    </h4>
+                                                    <ul class="article-meta">
+                                                        <li>
+                                                            <i class="fa fa-clock-o"></i>{{ busy.publishedAt }}
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </article>
+                                            <!-- /ARTICLE -->
+                                        </div>
+                                    </form>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+
+                        <!-- engadget -->
+                        <div id="engadget" class="tab-pane fade in active">
+                            <!-- row -->
+                            <div class="row">
+                                <!-- Column 1 -->
+                                {% for busy in engadget %}
+                                    <form action="{% url 'singlepost' %}" method="post">
+                                        {% csrf_token %}
+                                        <div class="col-md-3 col-sm-6">
+                                            <!-- ARTICLE -->
+                                            <article class="article">
+                                                <div class="article-img">
+                                                    <a href="#">
+                                                        <img src="{{ busy.urlToImage }}" alt=""
+                                                             style="object-fit:cover;object-center:center;">
+                                                    </a>
+                                                    <input type="hidden" name="title" value="{{ busy.title }}">
+                                                    <input type="hidden" name="description"
+                                                           value="{{ busy.description }}">
+                                                    <input type="hidden" name="image" value="{{ busy.urlToImage }}">
+                                                    <input type="hidden" name="url" value="{{ busy.url }}">
+                                                    <input type="hidden" name="date"
+                                                           value="{{ busy.publishedAt }}">
+                                                    <input type="hidden" name="author" value="{{ busy.author }}">
+                                                    <input type="hidden" name="content" value="123">
+                                                    <input type="hidden" name="name" value=" ">
+                                                </div>
+                                                <div class="article-body">
+                                                    <h4 class="article-title">
+                                                        <button type="submit" style="background:none!important;
+                                                                                 border:none;
+                                                                                 padding:0!important;">
+                                                            {{ busy.title }}</button>
+                                                    </h4>
+                                                    <ul class="article-meta">
+                                                        <li>
+                                                            <i class="fa fa-clock-o"></i>{{ busy.publishedAt }}
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </article>
+                                            <!-- /ARTICLE -->
+                                        </div>
+                                    </form>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+
+
+                        <!-- politico -->
+                        <div id="politico" class="tab-pane fade in active">
+                            <!-- row -->
+                            <div class="row">
+                                <!-- Column 1 -->
+                                {% for busy in politico %}
+                                    <form action="{% url 'singlepost' %}" method="post">
+                                        {% csrf_token %}
+                                        <div class="col-md-3 col-sm-6">
+                                            <!-- ARTICLE -->
+                                            <article class="article">
+                                                <div class="article-img">
+                                                    <a href="#">
+                                                        <img src="{{ busy.urlToImage }}" alt=""
+                                                             style="object-fit:cover;object-center:center;">
+                                                    </a>
+                                                    <input type="hidden" name="title" value="{{ busy.title }}">
+                                                    <input type="hidden" name="description"
+                                                           value="{{ busy.description }}">
+                                                    <input type="hidden" name="image" value="{{ busy.urlToImage }}">
+                                                    <input type="hidden" name="url" value="{{ busy.url }}">
+                                                    <input type="hidden" name="date"
+                                                           value="{{ busy.publishedAt }}">
+                                                    <input type="hidden" name="author" value="{{ busy.author }}">
+                                                    <input type="hidden" name="content" value="123">
+                                                    <input type="hidden" name="name" value=" ">
+                                                </div>
+                                                <div class="article-body">
+                                                    <h4 class="article-title">
+                                                        <button type="submit" style="background:none!important;
+                                                                                 border:none;
+                                                                                 padding:0!important;">
+                                                            {{ busy.title }}</button>
+                                                    </h4>
+                                                    <ul class="article-meta">
+                                                        <li>
+                                                            <i class="fa fa-clock-o"></i>{{ busy.publishedAt }}
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </article>
+                                            <!-- /ARTICLE -->
+                                        </div>
+                                    </form>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+
+
+                        <!-- foxNews -->
+                        <div id="foxNews" class="tab-pane fade in active">
+                            <!-- row -->
+                            <div class="row">
+                                <!-- Column 1 -->
+                                {% for busy in foxNews %}
+                                    <form action="{% url 'singlepost' %}" method="post">
+                                        {% csrf_token %}
+                                        <div class="col-md-3 col-sm-6">
+                                            <!-- ARTICLE -->
+                                            <article class="article">
+                                                <div class="article-img">
+                                                    <a href="#">
+                                                        <img src="{{ busy.urlToImage }}" alt=""
+                                                             style="object-fit:cover;object-center:center;">
+                                                    </a>
+                                                    <input type="hidden" name="title" value="{{ busy.title }}">
+                                                    <input type="hidden" name="description"
+                                                           value="{{ busy.description }}">
+                                                    <input type="hidden" name="image" value="{{ busy.urlToImage }}">
+                                                    <input type="hidden" name="url" value="{{ busy.url }}">
+                                                    <input type="hidden" name="date"
+                                                           value="{{ busy.publishedAt }}">
+                                                    <input type="hidden" name="author" value="{{ busy.author }}">
+                                                    <input type="hidden" name="content" value="123">
+                                                    <input type="hidden" name="name" value=" ">
+                                                </div>
+                                                <div class="article-body">
+                                                    <h4 class="article-title">
+                                                        <button type="submit" style="background:none!important;
+                                                                                 border:none;
+                                                                                 padding:0!important;">
+                                                            {{ busy.title }}</button>
+                                                    </h4>
+                                                    <ul class="article-meta">
+                                                        <li>
+                                                            <i class="fa fa-clock-o"></i>{{ busy.publishedAt }}
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </article>
+                                            <!-- /ARTICLE -->
+                                        </div>
+                                    </form>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+
+
+                        <!-- theWallStreetJournal -->
+                        <div id="theWallStreetJournal" class="tab-pane fade in active">
+                            <!-- row -->
+                            <div class="row">
+                                <!-- Column 1 -->
+                                {% for busy in theWallStreetJournal %}
+                                    <form action="{% url 'singlepost' %}" method="post">
+                                        {% csrf_token %}
+                                        <div class="col-md-3 col-sm-6">
+                                            <!-- ARTICLE -->
+                                            <article class="article">
+                                                <div class="article-img">
+                                                    <a href="#">
+                                                        <img src="{{ busy.urlToImage }}" alt=""
+                                                             style="object-fit:cover;object-center:center;">
+                                                    </a>
+                                                    <input type="hidden" name="title" value="{{ busy.title }}">
+                                                    <input type="hidden" name="description"
+                                                           value="{{ busy.description }}">
+                                                    <input type="hidden" name="image" value="{{ busy.urlToImage }}">
+                                                    <input type="hidden" name="url" value="{{ busy.url }}">
+                                                    <input type="hidden" name="date"
+                                                           value="{{ busy.publishedAt }}">
+                                                    <input type="hidden" name="author" value="{{ busy.author }}">
+                                                    <input type="hidden" name="content" value="123">
+                                                    <input type="hidden" name="name" value=" ">
+                                                </div>
+                                                <div class="article-body">
+                                                    <h4 class="article-title">
+                                                        <button type="submit" style="background:none!important;
+                                                                                 border:none;
+                                                                                 padding:0!important;">
+                                                            {{ busy.title }}</button>
+                                                    </h4>
+                                                    <ul class="article-meta">
+                                                        <li>
+                                                            <i class="fa fa-clock-o"></i>{{ busy.publishedAt }}
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </article>
+                                            <!-- /ARTICLE -->
+                                        </div>
+                                    </form>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+
+
+                        <!-- theWashingtonPost -->
+                        <div id="theWashingtonPost" class="tab-pane fade in active">
+                            <!-- row -->
+                            <div class="row">
+                                <!-- Column 1 -->
+                                {% for busy in theWashingtonPost %}
+                                    <form action="{% url 'singlepost' %}" method="post">
+                                        {% csrf_token %}
+                                        <div class="col-md-3 col-sm-6">
+                                            <!-- ARTICLE -->
+                                            <article class="article">
+                                                <div class="article-img">
+                                                    <a href="#">
+                                                        <img src="{{ busy.urlToImage }}" alt=""
+                                                             style="object-fit:cover;object-center:center;">
+                                                    </a>
+                                                    <input type="hidden" name="title" value="{{ busy.title }}">
+                                                    <input type="hidden" name="description"
+                                                           value="{{ busy.description }}">
+                                                    <input type="hidden" name="image" value="{{ busy.urlToImage }}">
+                                                    <input type="hidden" name="url" value="{{ busy.url }}">
+                                                    <input type="hidden" name="date"
+                                                           value="{{ busy.publishedAt }}">
+                                                    <input type="hidden" name="author" value="{{ busy.author }}">
+                                                    <input type="hidden" name="content" value="123">
+                                                    <input type="hidden" name="name" value=" ">
+                                                </div>
+                                                <div class="article-body">
+                                                    <h4 class="article-title">
+                                                        <button type="submit" style="background:none!important;
+                                                                                 border:none;
+                                                                                 padding:0!important;">
+                                                            {{ busy.title }}</button>
+                                                    </h4>
+                                                    <ul class="article-meta">
+                                                        <li>
+                                                            <i class="fa fa-clock-o"></i>{{ busy.publishedAt }}
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </article>
+                                            <!-- /ARTICLE -->
+                                        </div>
+                                    </form>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="visible-lg visible-md">
+			<img class="center-block" src="{% static 'img/ad-3.jpg' %}" alt="" style="width: 100%;height: 100%">
+		</div>
+
+    <div class="section">
+        <!-- CONTAINER -->
+        <div class="container">
+            <!-- ROW -->
+            <div class="row">
+                <!-- Main Column -->
+                <div class="col-md-12">
+                    <!-- section title -->
+                    <div class="section-title">
+                        <h2 class="title">Health</h2>
+                        <div id="nav-carousel-2" class="custom-owl-nav pull-right"></div>
+                    </div>
+                    <!-- /section title -->
+
+                    <!-- owl carousel 2 -->
+                    <div id="owl-carousel-2" class="owl-carousel owl-theme">
+                        <!-- ARTICLE -->
+                        {% for busy in health %}
+                            <form action="{% url 'singlepost' %}" method="post">
+                                {% csrf_token %}
+                                <div style="height: 400px">
+
+                                    <!-- ARTICLE -->
+                                    <article class="article thumb-article">
+                                        <div class="article-img">
+                                            <a href="#">
+                                                <img src="{{ busy.urlToImage }}" alt="" style="height: 380px;">
+                                            </a>
+                                            <input type="hidden" name="title" value="{{ busy.title }}">
+                                            <input type="hidden" name="description" value="{{ busy.description }}">
+                                            <input type="hidden" name="image" value="{{ busy.urlToImage }}">
+                                            <input type="hidden" name="url" value="{{ busy.url }}">
+                                            <input type="hidden" name="date"
+                                                   value="{{ busy.publishedAt }}">
+                                            <input type="hidden" name="author" value="{{ busy.author }}">
+                                            <input type="hidden" name="content" value="123">
+                                            <input type="hidden" name="name" value=" ">
+                                        </div>
+                                        <div class="article-body">
+                                            <h4 class="article-title">
+                                                <button type="submit" style="background:none!important;
+                                                                                 border:none;
+                                                                                 padding:0!important;
+                                                                                 color:white">
+                                                    {{ busy.title }}</button>
+                                            </h4>
+                                            <ul class="article-meta">
+                                                <li><i class="fa fa-clock-o"></i>{{ busy.publishedAt }}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </article>
+                                    <!-- /ARTICLE -->
+                                </div>
+                            </form>
+                        {% endfor %}
+                        <!-- /ARTICLE -->
+                    </div>
+                    <!-- /owl carousel 2 -->
+                </div>
+                <!-- /Main Column -->
+
+            </div>
+
+            {#       end row#}
+
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- section title -->
+                    <div class="section-title">
+                        <h2 class="title">Entertainment</h2>
+                        <div id="nav-carousel-21" class="custom-owl-nav pull-right"></div>
+                    </div>
+                    <!-- /section title -->
+
+                    <!-- owl carousel 2 -->
+                    <div id="owl-carousel-21" class="owl-carousel owl-theme">
+                        <!-- ARTICLE -->
+                        {% for busy in entertainment %}
+                            <form action="{% url 'singlepost' %}" method="post">
+                                {% csrf_token %}
+                                <div style="height: 400px">
+
+                                    <!-- ARTICLE -->
+                                    <article class="article thumb-article">
+                                        <div class="article-img">
+                                            <a href="#">
+                                                <img src="{{ busy.urlToImage }}" alt="" style="height: 380px;">
+                                            </a>
+                                            <input type="hidden" name="title" value="{{ busy.title }}">
+                                            <input type="hidden" name="description" value="{{ busy.description }}">
+                                            <input type="hidden" name="image" value="{{ busy.urlToImage }}">
+                                            <input type="hidden" name="url" value="{{ busy.url }}">
+                                            <input type="hidden" name="date"
+                                                   value="{{ busy.publishedAt }}">
+                                            <input type="hidden" name="author" value="{{ busy.author }}">
+                                            <input type="hidden" name="content" value="123">
+                                            <input type="hidden" name="name" value=" ">
+                                        </div>
+                                        <div class="article-body">
+                                            <h4 class="article-title">
+                                                <button type="submit" style="background:none!important;
+                                                                                 border:none;
+                                                                                 padding:0!important;
+                                                                                 color:white">
+                                                    {{ busy.title }}</button>
+                                            </h4>
+                                            <ul class="article-meta">
+                                                <li><i class="fa fa-clock-o"></i>{{ busy.publishedAt }}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </article>
+                                    <!-- /ARTICLE -->
+                                </div>
+                            </form>
+                        {% endfor %}
+                        <!-- /ARTICLE -->
+                    </div>
+                    <!-- /owl carousel 2 -->
+                </div>
+
+            </div>
+            <!-- /ROW -->
+
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- section title -->
+                    <div class="section-title">
+                        <h2 class="title">Science</h2>
+                        <div id="nav-carousel-22" class="custom-owl-nav pull-right"></div>
+                    </div>
+                    <!-- /section title -->
+
+                    <!-- owl carousel 2 -->
+                    <div id="owl-carousel-22" class="owl-carousel owl-theme">
+                        <!-- ARTICLE -->
+                        {% for busy in science %}
+                            <form action="{% url 'singlepost' %}" method="post">
+                                {% csrf_token %}
+                                <div style="height: 400px">
+
+                                    <!-- ARTICLE -->
+                                    <article class="article thumb-article">
+                                        <div class="article-img">
+                                            <a href="#">
+                                                <img src="{{ busy.urlToImage }}" alt="" style="height: 380px;">
+                                            </a>
+                                            <input type="hidden" name="title" value="{{ busy.title }}">
+                                            <input type="hidden" name="description" value="{{ busy.description }}">
+                                            <input type="hidden" name="image" value="{{ busy.urlToImage }}">
+                                            <input type="hidden" name="url" value="{{ busy.url }}">
+                                            <input type="hidden" name="date"
+                                                   value="{{ busy.publishedAt }}">
+                                            <input type="hidden" name="author" value="{{ busy.author }}">
+                                            <input type="hidden" name="content" value="123">
+                                            <input type="hidden" name="name" value=" ">
+                                        </div>
+                                        <div class="article-body">
+                                            <h4 class="article-title">
+                                                <button type="submit" style="background:none!important;
+                                                                                 border:none;
+                                                                                 padding:0!important;
+                                                                                 color:white">
+                                                    {{ busy.title }}</button>
+                                            </h4>
+                                            <ul class="article-meta">
+                                                <li><i class="fa fa-clock-o"></i>{{ busy.publishedAt }}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </article>
+                                    <!-- /ARTICLE -->
+                                </div>
+                            </form>
+                        {% endfor %}
+                        <!-- /ARTICLE -->
+                    </div>
+                    <!-- /owl carousel 2 -->
+                </div>
+
+            </div>
+
+            {#        row end#}
+
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- section title -->
+                    <div class="section-title">
+                        <h2 class="title">Technology</h2>
+                        <div id="nav-carousel-23" class="custom-owl-nav pull-right"></div>
+                    </div>
+                    <!-- /section title -->
+
+                    <!-- owl carousel 2 -->
+                    <div id="owl-carousel-23" class="owl-carousel owl-theme">
+                        <!-- ARTICLE -->
+                        {% for busy in technology %}
+                            <form action="{% url 'singlepost' %}" method="post">
+                                {% csrf_token %}
+                                <div style="height: 400px">
+
+                                    <!-- ARTICLE -->
+                                    <article class="article thumb-article">
+                                        <div class="article-img">
+                                            <a href="#">
+                                                <img src="{{ busy.urlToImage }}" alt="" style="height: 380px;">
+                                            </a>
+                                            <input type="hidden" name="title" value="{{ busy.title }}">
+                                            <input type="hidden" name="description" value="{{ busy.description }}">
+                                            <input type="hidden" name="image" value="{{ busy.urlToImage }}">
+                                            <input type="hidden" name="url" value="{{ busy.url }}">
+                                            <input type="hidden" name="date"
+                                                   value="{{ busy.publishedAt }}">
+                                            <input type="hidden" name="author" value="{{ busy.author }}">
+                                            <input type="hidden" name="content" value="123">
+                                            <input type="hidden" name="name" value=" ">
+                                        </div>
+                                        <div class="article-body">
+                                            <h4 class="article-title">
+                                                <button type="submit" style="background:none!important;
+                                                                                 border:none;
+                                                                                 padding:0!important;
+                                                                                 color:white">
+                                                    {{ busy.title }}</button>
+                                            </h4>
+                                            <ul class="article-meta">
+                                                <li><i class="fa fa-clock-o"></i>{{ busy.publishedAt }}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </article>
+                                    <!-- /ARTICLE -->
+                                </div>
+                            </form>
+                        {% endfor %}
+                        <!-- /ARTICLE -->
+                    </div>
+                    <!-- /owl carousel 2 -->
+                </div>
+
+            </div>
+
+            <!--row end-->
+
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- section title -->
+                    <div class="section-title">
+                        <h2 class="title">Sports</h2>
+                        <div id="nav-carousel-24" class="custom-owl-nav pull-right"></div>
+                    </div>
+                    <!-- /section title -->
+
+                    <!-- owl carousel 2 -->
+                    <div id="owl-carousel-24" class="owl-carousel owl-theme">
+                        <!-- ARTICLE -->
+                        {% for busy in sports %}
+                            <form action="{% url 'singlepost' %}" method="post">
+                                {% csrf_token %}
+                                <div style="height: 400px">
+
+                                    <!-- ARTICLE -->
+                                    <article class="article thumb-article">
+                                        <div class="article-img">
+                                            <a href="#">
+                                                <img src="{{ busy.urlToImage }}" alt="" style="height: 380px;">
+                                            </a>
+                                            <input type="hidden" name="title" value="{{ busy.title }}">
+                                            <input type="hidden" name="description" value="{{ busy.description }}">
+                                            <input type="hidden" name="image" value="{{ busy.urlToImage }}">
+                                            <input type="hidden" name="url" value="{{ busy.url }}">
+                                            <input type="hidden" name="date"
+                                                   value="{{ busy.publishedAt }}">
+                                            <input type="hidden" name="author" value="{{ busy.author }}">
+                                            <input type="hidden" name="content" value="123">
+                                            <input type="hidden" name="name" value=" ">
+                                        </div>
+                                        <div class="article-body">
+                                            <h4 class="article-title">
+                                                <button type="submit" style="background:none!important;
+                                                                                 border:none;
+                                                                                 padding:0!important;
+                                                                                 color:white">
+                                                    {{ busy.title }}</button>
+                                            </h4>
+                                            <ul class="article-meta">
+                                                <li><i class="fa fa-clock-o"></i>{{ busy.publishedAt }}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </article>
+                                    <!-- /ARTICLE -->
+                                </div>
+                            </form>
+                        {% endfor %}
+                        <!-- /ARTICLE -->
+                    </div>
+                    <!-- /owl carousel 2 -->
+                </div>
+
+            </div>
+
+        </div>
+        <!-- /CONTAINER -->
+    </div>
+    <div id="back-to-top"></div>
+    <!-- Back to top -->
+
+{% endblock %}

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1cdb660d-51c7-4352-a3c0-0d9b66d09bab" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="ProjectId" id="1cFr8ortjUH97PkhcF0iLxJJNZ7" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\python\News Portal\templates\category" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="News Portal" type="Python.DjangoServer" factoryName="Django server">
+      <module name="News Portal" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1cdb660d-51c7-4352-a3c0-0d9b66d09bab" name="Default Changelist" comment="" />
+      <created>1590135025072</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1590135025072</updated>
+      <workItem from="1590135027645" duration="14996000" />
+      <workItem from="1590158340043" duration="30764000" />
+      <workItem from="1590302064624" duration="866000" />
+      <workItem from="1590318340713" duration="10355000" />
+      <workItem from="1590398394911" duration="1816000" />
+      <workItem from="1590426233675" duration="965000" />
+      <workItem from="1590906045355" duration="960000" />
+      <workItem from="1590907985884" duration="331000" />
+      <workItem from="1590942337533" duration="55373000" />
+      <workItem from="1591268876688" duration="1989000" />
+      <workItem from="1591508211477" duration="593000" />
+      <workItem from="1591509915312" duration="25000" />
+      <workItem from="1591542346864" duration="2652000" />
+      <workItem from="1591612786470" duration="1553000" />
+      <workItem from="1591676253497" duration="3093000" />
+      <workItem from="1591703533832" duration="4495000" />
+      <workItem from="1591768684614" duration="3694000" />
+      <workItem from="1605697159319" duration="49000" />
+      <workItem from="1613900504462" duration="1169000" />
+      <workItem from="1618040849453" duration="33000" />
+      <workItem from="1619164794891" duration="106000" />
+      <workItem from="1620107609964" duration="142000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="580" y="184" key="FileChooserDialogImpl" timestamp="1618040880707">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="580" y="184" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1618040880707" />
+  </component>
+</project>

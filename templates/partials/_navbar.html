@@ -1,0 +1,73 @@
+<header id="header">
+
+    <!-- Nav Header -->
+    <div id="nav-header">
+        <div class="container">
+            <nav id="main-nav">
+                <ul class="main-nav nav navbar-nav">
+                    <li {% if '/' == request.path %}
+                        class="active"
+                    {% endif %}><a href="{% url 'index' %}">Home</a></li>
+
+
+                    <li {% if '/sources' == request.path %}
+                        class="active"
+                    {% endif %}><a href="{% url 'sources' %}">Source</a></li>
+
+
+                    <li {% if '/business' == request.path %}
+                        class="active"
+                    {% endif %}><a href="{% url 'business' %}">Business</a></li>
+
+
+                    <li {% if '/entertainment' == request.path %}
+                        class="active"
+                    {% endif %}><a href="{% url 'entertainment' %}">Entertainment</a></li>
+
+
+                    <li {% if '/general' == request.path %}
+                        class="active"
+                    {% endif %}><a href="{% url 'general' %}">General</a></li>
+
+
+                    <li {% if '/health' == request.path %}
+                        class="active"
+                    {% endif %}><a href="{% url 'health' %}">Health</a></li>
+
+
+                    <li {% if '/science' == request.path %}
+                        class="active"
+                    {% endif %}><a href="{% url 'science' %}">Science</a></li>
+
+
+                    <li {% if '/sports' == request.path %}
+                        class="active"
+                    {% endif %}><a href="{% url 'sports' %}">Sports</a></li>
+
+
+                    <li {% if '/technology' == request.path %}
+                        class="active"
+                    {% endif %}><a href="{% url 'technology' %}">Technology</a></li>
+
+
+                    <li {% if '/postednews' == request.path %}
+                        class="active"
+                    {% endif %}><a href="{% url 'postednews' %}">Posted News</a></li>
+
+                </ul>
+            </nav>
+            <div class="button-nav">
+                <button class="search-collapse-btn"><i class="fa fa-search"></i></button>
+                <button class="nav-collapse-btn"><i class="fa fa-bars"></i></button>
+                <div class="search-form">
+                    <form action="{% url 'search' %}" method="post">
+                        {% csrf_token %}
+                        <input class="input" type="text" name="search" placeholder="Search">
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /Nav Header -->
+</header>
